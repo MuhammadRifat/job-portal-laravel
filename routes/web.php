@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\JobCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,9 @@ use App\Http\Controllers\Frontend\HomeController;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -24,4 +26,8 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
 
 // admin routes
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('/home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('/dashboard');
+Route::get('/dashboard/job-category', [JobCategoryController::class, 'index']);
+Route::post('/dashboard/job-category/insert', [JobCategoryController::class, 'insert']);
+Route::get('/dashboard/job-category/delete/{category_id}', [JobCategoryController::class, 'delete']);
+Route::post('/dashboard/job-category/edit', [JobCategoryController::class, 'edit']);
