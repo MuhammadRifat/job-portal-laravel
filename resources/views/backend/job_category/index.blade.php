@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row  p-2 rounded">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="card p-2">
 
                     @if (session('editStatus'))
@@ -85,12 +85,14 @@
                     </table>
                     {{ $categories->links() }}
                 </div>
+                
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="card p-2">
                     <form action="{{ url('/dashboard/job-category/insert') }}" method="post">
                         @csrf
                         <div class="mb-3">
+                            <h5 class="border-bottom">Add Job Category</h5>
                             <label for="category_name" class="form-label">Category Name</label>
                             <input type="text" class="form-control" name="category_name" id="category_name" required>
                             @error('category_name')

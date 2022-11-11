@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\JobCategoryController;
 
@@ -22,10 +26,16 @@ use App\Http\Controllers\Backend\JobCategoryController;
 
 Auth::routes();
 
-// clients routes
+// frontend routes
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/job-list', [JobController::class, 'index']);
+Route::get('/job-details', [JobController::class, 'job_details']);
+Route::get('/about', [AboutController::class, 'index']);
+Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog-details', [BlogController::class, 'blog_details']);
+Route::get('/contact', [ContactController::class, 'index']);
 
-// admin routes
+// backend routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('/dashboard');
 Route::get('/dashboard/job-category', [JobCategoryController::class, 'index']);
 Route::post('/dashboard/job-category/insert', [JobCategoryController::class, 'insert']);
