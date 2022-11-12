@@ -6,6 +6,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmployeerController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\JobCategoryController;
 
@@ -37,7 +38,17 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 // backend routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('/dashboard');
+
+// job category routes
 Route::get('/dashboard/job-category', [JobCategoryController::class, 'index']);
 Route::post('/dashboard/job-category/insert', [JobCategoryController::class, 'insert']);
 Route::get('/dashboard/job-category/delete/{category_id}', [JobCategoryController::class, 'delete']);
 Route::post('/dashboard/job-category/edit', [JobCategoryController::class, 'edit']);
+
+// employers routes
+Route::get('/dashboard/employer', [EmployeerController::class, 'index']);
+Route::post('/dashboard/employer/insert', [EmployeerController::class, 'insert']);
+Route::get('/dashboard/employer/delete/{employer_id}', [EmployeerController::class, 'delete']);
+Route::post('/dashboard/employer/edit', [EmployeerController::class, 'edit']);
+
+

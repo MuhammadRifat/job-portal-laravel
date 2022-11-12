@@ -16,8 +16,8 @@ class JobCategoryController extends Controller
     }
 
     function index() {
-        $categories = JobCategory::latest()->simplepaginate(5);
-        return view('backend.job_category.index', compact('categories'));
+        $data = JobCategory::latest()->simplepaginate(5);
+        return view('backend.job_category.index', compact('data'));
     }
 
     // add category

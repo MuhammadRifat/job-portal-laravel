@@ -25,6 +25,7 @@
             color: black !important;
             transition: all .3s ease !important;
         }
+
         a {
             text-decoration: none;
         }
@@ -78,11 +79,18 @@
 
                 {{-- navigation link --}}
                 <ul class="px-2">
-                    <li><a class="bg-secondary mt-2 p-2 rounded d-block text-white hoverPrimary" href="{{ url('dashboard') }}"><i
-                                class="fas fa-table"></i> Home</a></li>
-                    <li><a class="bg-secondary mt-1 p-2 rounded d-block text-white hoverPrimary"
-                            href="{{ url('/dashboard/job-category') }}"><i class="fas fa-plus-square"></i> Job Category</a></li>
-                    
+                    <li><a class="bg-secondary mt-2 p-2 rounded d-block text-white hoverPrimary"
+                            href="{{ url('dashboard') }}"><i class="fas fa-table"></i> Home</a></li>
+                    <li>
+                        <a class="bg-secondary mt-1 p-2 rounded d-block text-white hoverPrimary"
+                            href="{{ url('/dashboard/job-category') }}"><i class="fas fa-plus-square"></i> Job
+                            Category</a>
+                    </li>
+                    <li>
+                        <a class="bg-secondary mt-1 p-2 rounded d-block text-white hoverPrimary"
+                            href="{{ url('/dashboard/employer') }}"><i class="fas fa-plus-square"></i> Employers</a>
+                    </li>
+
                     <li><a class="bg-secondary mt-1 p-2 rounded d-block text-white hoverPrimary"
                             href="{{ url('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
