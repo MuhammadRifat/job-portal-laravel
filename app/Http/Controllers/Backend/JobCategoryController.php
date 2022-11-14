@@ -7,16 +7,18 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\JobCategory;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class JobCategoryController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('check_admin');
     }
 
     function index() {
-        $data = JobCategory::latest()->simplepaginate(5);
+        $data = JobCategory::latest()->simplePaginate(5);
         return view('backend.job_category.index', compact('data'));
     }
 
@@ -31,6 +33,7 @@ class JobCategoryController extends Controller
         ]);
         JobCategory::insert([
             'category_name' => $request->category_name,
+            'slug' => Str::slug($request->category_name, '-'),
             'added_by' => Auth::id(),
             'created_at' => Carbon::now(),
         ]);

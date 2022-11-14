@@ -88,8 +88,12 @@
                                 </div>
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="{{ url('register') }}" class="btn head-btn1">Register</a>
-                                    <a href="{{ url('login') }}" class="btn head-btn2">Login</a>
+                                    @if (Auth::check())
+                                    <a href="{{ url('dashboard') }}" class="btn head-btn1">Dashboard</a>
+                                    @else
+                                        <a href="{{ url('register') }}" class="btn head-btn1">Register</a>
+                                        <a href="{{ url('login') }}" class="btn head-btn2">Login</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

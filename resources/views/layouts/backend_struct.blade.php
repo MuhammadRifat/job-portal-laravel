@@ -20,7 +20,7 @@
                     {{-- section list --}}
                     @yield('item_list')
 
-                    {{ $data->links() }}
+                    {{ $data->onEachSide(5)->links() }}
                 </div>
             </div>
             <div class="col-lg-3">

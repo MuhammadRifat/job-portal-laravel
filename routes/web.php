@@ -29,7 +29,7 @@ Auth::routes();
 
 // frontend routes
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/job-list', [JobController::class, 'index']);
+Route::get('/job-list/{slug?}', [JobController::class, 'index']);
 Route::get('/job-details', [JobController::class, 'job_details']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/blog', [BlogController::class, 'index']);

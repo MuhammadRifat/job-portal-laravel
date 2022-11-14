@@ -7,7 +7,7 @@
             <tr>
                 <th scope="col">Serial</th>
                 <th scope="col">Employer Name</th>
-                <th scope="col">Company Name</th>
+                <th scope="col">Email</th>
                 <th scope="col">Created at</th>
                 <th scope="col" class='text-center'>Action</th>
             </tr>
@@ -16,8 +16,8 @@
             @foreach ($data as $index => $employer)
                 <tr>
                     <td>{{ $index + $data->firstItem() }}</td>
-                    <td>{{ $employer->employer_name }}</td>
-                    <td>{{ $employer->company_name }}</td>
+                    <td>{{ $employer->name }}</td>
+                    <td>{{ $employer->email }}</td>
                     <td>{{ $employer->created_at->DiffForHumans() }}</td>
                     <td class='text-center'>
                         <a class="text-danger mx-1"
@@ -72,39 +72,39 @@
         <div class="mb-3">
             <h5 class="border-bottom">Add Employer</h5>
             <label for="employer_name" class="form-label">Employer Name</label>
-            <input type="text" class="form-control" name="employer_name" id="employer_name" required>
+            <input type="text" class="form-control" name="name" id="employer_name" required>
             @error('employer_name')
                 <div class="alert alert-danger">
                     {{ $message }}
                 </div>
             @enderror
-
+{{-- 
             <label for="employer_designation" class="form-label">employer designation</label>
             <input type="text" class="form-control" name="employer_designation" id="employer_designation" required>
             @error('employer_designation')
                 <div class="alert alert-danger">
                     {{ $message }}
                 </div>
-            @enderror
+            @enderror --}}
 
             <label for="employer_email" class="form-label">employer email</label>
-            <input type="email" class="form-control" name="employer_email" id="employer_email" required>
+            <input type="email" class="form-control" name="email" id="employer_email" required>
             @error('employer_email')
                 <div class="alert alert-danger">
                     {{ $message }}
                 </div>
             @enderror
 
-            <label for="company_name" class="form-label">company name</label>
+            {{-- <label for="company_name" class="form-label">company name</label>
             <input type="text" class="form-control" name="company_name" id="company_name" required>
             @error('company_name')
                 <div class="alert alert-danger">
                     {{ $message }}
                 </div>
-            @enderror
+            @enderror --}}
 
             <label for="employer_password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="employer_password" id="employer_password" required>
+            <input type="password" class="form-control" name="password" id="employer_password" required>
             @error('employer_password')
                 <div class="alert alert-danger">
                     {{ $message }}

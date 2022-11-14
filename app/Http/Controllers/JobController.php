@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    function index()
+    function index($slug = null)
     {
         return view('frontend.job_list');
     }

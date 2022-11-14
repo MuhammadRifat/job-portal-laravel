@@ -21,22 +21,22 @@
                     <div class="row">
                         <div class="col-xl-8">
                             <!-- form -->
-                            <form action="#" class="search-box">
+                            <form action="" class="search-box">
                                 <div class="input-form">
                                     <input type="text" placeholder="Job Tittle or keyword">
                                 </div>
                                 <div class="select-form">
                                     <div class="select-itms">
                                         <select name="select" id="select1">
-                                            <option value="">Location BD</option>
-                                            <option value="">Location PK</option>
-                                            <option value="">Location US</option>
-                                            <option value="">Location UK</option>
+                                            @foreach ($job_categories as $category)
+                                                <option value="{{ $category->slug }}">{{ $category->category_name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    <a href="#">Find job</a>
+                                    <a href="{{ url('job-list') }}">Find job</a>
                                 </div>
                             </form>
                         </div>
@@ -59,13 +59,28 @@
                 </div>
             </div>
             <div class="row d-flex justify-contnet-center">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                @foreach ($job_categories as $category)
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <a href="{{ url('job-list/' . $category->slug) }}">
+                            <div class="single-services text-center mb-30">
+                                <div class="services-ion">
+                                    <span class="flaticon-tour"></span>
+                                </div>
+                                <div class="services-cap">
+                                    <h5>{{ $category->category_name }}</h5>
+                                    <span>(653)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+                {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
                             <span class="flaticon-tour"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Design & Creative</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Design & Creative</a></h5>
                             <span>(653)</span>
                         </div>
                     </div>
@@ -76,7 +91,7 @@
                             <span class="flaticon-cms"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Design & Development</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Design & Development</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
@@ -87,7 +102,7 @@
                             <span class="flaticon-report"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Sales & Marketing</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Sales & Marketing</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
@@ -98,7 +113,7 @@
                             <span class="flaticon-app"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Mobile Application</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Mobile Application</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
@@ -109,7 +124,7 @@
                             <span class="flaticon-helmet"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Construction</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Construction</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
@@ -120,7 +135,7 @@
                             <span class="flaticon-high-tech"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Information Technology</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Information Technology</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
@@ -131,7 +146,7 @@
                             <span class="flaticon-real-estate"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Real Estate</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Real Estate</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
@@ -142,18 +157,18 @@
                             <span class="flaticon-content"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="{{  url('job-list')  }}">Content Writer</a></h5>
+                            <h5><a href="{{ url('job-list') }}">Content Writer</a></h5>
                             <span>(658)</span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- More Btn -->
             <!-- Section Button -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="browse-btn2 text-center mt-50">
-                        <a href="{{  url('job-list')  }}" class="border-btn2">Browse All Sectors</a>
+                        <a href="{{ url('job-list') }}" class="border-btn2">Browse All Sectors</a>
                     </div>
                 </div>
             </div>

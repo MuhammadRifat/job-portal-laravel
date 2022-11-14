@@ -91,8 +91,7 @@
                             href="{{ url('/dashboard/employer') }}"><i class="fas fa-plus-square"></i> Employers</a>
                     </li>
 
-                    <li><a class="bg-secondary mt-1 p-2 rounded d-block text-white hoverPrimary"
-                            href="{{ url('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    
                 </ul>
             </div>
             <div class="col-lg-10 p-0">

@@ -16,6 +16,7 @@ class CreateJobCategoriesTable extends Migration
         Schema::create('job_categories', function (Blueprint $table) {
             $table->id();
             $table->string('category_name');
+            $table->string('slug')->unique();
             $table->integer('added_by');
             $table->timestamps();
         });
